@@ -5,7 +5,6 @@ from celery import current_app
 
 from celery import current_app, Task
 from celery import task as base_task, shared_task as base_shared_task
-from celery.contrib.batches import Batches
 import django
 from django.conf import settings
 from django.db import transaction
@@ -13,6 +12,7 @@ from django.db import transaction
 from django.db.transaction import get_connection, atomic
 
 import djcelery_transactions.transaction_signals
+from .batches import Batches
 
 # Thread-local data (task queue).
 _thread_data = threading.local()
